@@ -68,6 +68,7 @@ to do that).
 | 10 | +SEND_TICK+ | <<_tick_reply,TICK>> | Sends a tick event with the specified payload.
 | 11 | +SYNC+ | <<_sync_reply,SYNC>> | Sends an i3 sync event with the specified random value to the specified window.
 | 12 | +GET_BINDING_STATE+ | <<_binding_state_reply,BINDING_STATE>> | Request the current binding state, i.e. the currently active binding mode name.
+| 13 | +SET_TREE+ | <<_set_tree_reply,SET_TREE>> | Set the i3 layout tree.
 |======================================================
 
 So, a typical message could look like this:
@@ -149,6 +150,8 @@ SYNC (11)::
 	Reply to the SYNC message.
 GET_BINDING_STATE (12)::
 	Reply to the GET_BINDING_STATE message.
+SET_TREE (13)::
+	Reply for the SET_TREE message.
 
 == Messages and replies
 

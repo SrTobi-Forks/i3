@@ -912,6 +912,22 @@ IPC_HANDLER(tree) {
     y(free);
 }
 
+IPC_HANDLER(set_tree) {
+    yajl_gen gen = ygenalloc();
+
+    y(map_open);
+    ystr("status");
+    ystr("ok");
+    y(map_close);
+
+    const unsigned char *payload;
+    ylength length;
+    y(get_buf, &payload, &length);
+
+    ipc_send_client_message(client, length, I3_IPC_REPLY_TYPE_SET_TREE, payload);
+    y(free);
+}
+
 /*
  * Formats the reply message for a GET_WORKSPACES request and sends it to the
  * client
@@ -1411,7 +1427,7 @@ IPC_HANDLER(get_binding_state) {
 
 /* The index of each callback function corresponds to the numeric
  * value of the message type (see include/i3/ipc.h) */
-handler_t handlers[13] = {
+handler_t handlers[14] = {
     handle_run_command,
     handle_get_workspaces,
     handle_subscribe,
@@ -1425,6 +1441,7 @@ handler_t handlers[13] = {
     handle_send_tick,
     handle_sync,
     handle_get_binding_state,
+    handle_set_tree,
 };
 
 /*

@@ -201,9 +201,11 @@ int main(int argc, char *argv[]) {
                 message_type = I3_IPC_MESSAGE_TYPE_SEND_TICK;
             } else if (strcasecmp(optarg, "subscribe") == 0) {
                 message_type = I3_IPC_MESSAGE_TYPE_SUBSCRIBE;
+            } else if (strcasecmp(optarg, "set_tree") == 0) {
+                message_type = I3_IPC_MESSAGE_TYPE_SET_TREE;
             } else {
                 printf("Unknown message type\n");
-                printf("Known types: run_command, get_workspaces, get_outputs, get_tree, get_marks, get_bar_config, get_binding_modes, get_binding_state, get_version, get_config, send_tick, subscribe\n");
+                printf("Known types: run_command, get_workspaces, get_outputs, get_tree, get_marks, get_bar_config, get_binding_modes, get_binding_state, get_version, get_config, send_tick, subscribe, set_tree\n");
                 exit(EXIT_FAILURE);
             }
         } else if (o == 'q') {

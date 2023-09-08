@@ -160,6 +160,7 @@ handler_t reply_handlers[] = {
     NULL,                 /* I3_IPC_REPLY_TYPE_CONFIG */
     NULL,                 /* I3_IPC_REPLY_TYPE_TICK */
     NULL,                 /* I3_IPC_REPLY_TYPE_SYNC */
+    NULL,                 /* I3_IPC_REPLY_TYPE_SET_TREE */
 };
 
 /*
